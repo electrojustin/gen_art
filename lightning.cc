@@ -214,7 +214,7 @@ void process_bolt(std::vector<Bolt>* bolts, int idx) {
 void paint_loop() {
   auto last_buf_swap = std::chrono::high_resolution_clock::now();
   int kRefreshPeriod = 33000;
-  std::vector<uint32_t> new_bolt_pdf = {150, 1};
+  std::vector<uint32_t> new_bolt_pdf = {80, 1};
   MarkovSampler new_bolt_sampler(new_bolt_pdf);
   std::vector<Bolt> bolts;
   const int flash_decay = 1;

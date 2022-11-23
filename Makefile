@@ -4,7 +4,11 @@ INCLUDE=-I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/
 CC=clang -g -pthread -fPIC
 LINK=-lstdc++ -L/usr/lib/x86_64-linux-gnu/ -lQt5Core -lQt5Gui -lQt5Widgets -lQt5Multimedia -lpng -lfftw3 -lm
 
-all: random_walk_test lightning frequency_sweep
+all: random_walk_test lightning frequency_sweep diffusion grey_scott
+grey_scott: grey_scott.cc qt_display.o
+	${CC} ${INCLUDE} ${LINK} grey_scott.cc qt_display.o -o grey_scott
+diffusion: diffusion.cc qt_display.o
+	${CC} ${INCLUDE} ${LINK} diffusion.cc qt_display.o -o diffusion
 lightning: lightning.cc markov.o qt_display.o
 	${CC} ${INCLUDE} ${LINK} lightning.cc markov.o qt_display.o -o lightning
 markov.o: markov.h markov.cc
